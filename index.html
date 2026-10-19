@@ -255,7 +255,7 @@ const demoReplies=[
 {keys:['math','mathematics'],text:'Mathematics helps us study numbers, patterns, shapes, and relationships. I can show sample explanations for arithmetic, algebra, geometry, and more. Which specific topic are you working on?'},
 {keys:['stress','anxious','nervous'],text:'It can help to pause, take a few comfortable slow breaths, and break the work into one small next step. If stress feels intense or keeps affecting your daily life, consider talking with a trusted adult or qualified professional.'}
 ];
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = 'https://stysa-ai.onrender.com';
 async function callAI(path, payload){
   const response = await fetch(API_BASE + path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
   const data = await response.json().catch(()=>({detail:'The server returned an unreadable response.'}));
