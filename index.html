@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stysa AI — Learn Smarter</title>
+<meta name="description" content="Stysa AI helps students learn smarter, build healthy study habits, and prepare for exams.">
+<style>
+:root{--bg:#eef4ff;--panel:#fff;--text:#17213d;--muted:#6b7590;--line:#e6eaf4;--blue:#4263eb;--purple:#7757e8;--soft:#edf0ff;--green:#138a63;--shadow:0 12px 35px rgba(38,53,110,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:250px;background:var(--panel);border-right:1px solid var(--line);padding:22px 16px;display:flex;flex-direction:column;gap:22px;flex-shrink:0}.brand{display:flex;align-items:center;gap:11px;padding:2px 8px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--purple));display:grid;place-items:center;color:white;font-weight:900;font-size:19px;box-shadow:0 8px 18px #4263eb40}.brand-name{font-size:19px;font-weight:850;letter-spacing:-.5px}.brand-sub{font-size:11px;color:var(--muted);margin-top:2px}.nav-label{font-size:10px;font-weight:800;letter-spacing:1.3px;color:#9aa3ba;padding:0 12px;margin-bottom:-10px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;text-align:left;padding:11px 12px;border-radius:12px;color:#606b86;display:flex;gap:12px;align-items:center;font-weight:650}.nav button:hover,.nav button.active{background:var(--soft);color:var(--blue)}.nav .ico{width:22px;text-align:center;font-size:17px}.side-bottom{margin-top:auto}.side-note{background:linear-gradient(145deg,#eef1ff,#f7f0ff);padding:16px;border-radius:16px;font-size:12px;color:#58628a;line-height:1.55}.side-note strong{display:block;color:#26345f;font-size:13px;margin-bottom:5px}.main{min-width:0;flex:1;padding:26px clamp(16px,3vw,42px) 42px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}.eyebrow{color:var(--blue);font-weight:800;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}.topbar h1{font-size:26px;letter-spacing:-.8px;margin:5px 0 0}.top-actions{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 12px;color:var(--text)}.avatar{height:38px;width:38px;display:grid;place-items:center;border-radius:13px;background:#e7eaff;color:var(--blue);font-weight:850}.view{display:none}.view.active{display:block}.hero{background:linear-gradient(115deg,#344fdb,#7051df 75%,#9273f0);color:white;border-radius:24px;padding:clamp(24px,4vw,42px);position:relative;overflow:hidden;box-shadow:0 18px 40px #4b53c52b}.hero:after{content:"✦";position:absolute;font-size:190px;right:8%;top:-60px;opacity:.12}.hero h2{font-size:clamp(27px,3.4vw,42px);line-height:1.12;letter-spacing:-1.4px;max-width:550px;margin:13px 0}.hero p{max-width:570px;color:#e4e7ff;line-height:1.7;margin:0 0 23px}.hero .eyebrow{color:#dfe4ff}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:750;transition:transform .15s,opacity .15s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--blue);color:#fff}.btn-white{background:#fff;color:#3f50c8}.btn-ghost{background:var(--soft);color:var(--blue)}.hero .btn{padding:13px 18px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 14px}.section-head h3{font-size:18px;letter-spacing:-.4px;margin:0}.section-head span{color:var(--muted);font-size:12px}.grid{display:grid;gap:16px}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:var(--shadow);min-width:0}.stat{display:flex;gap:13px;align-items:center}.stat-icon{height:44px;width:44px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:#edf0ff}.stat strong{font-size:23px;display:block}.stat span{font-size:12px;color:var(--muted)}.feature{cursor:pointer;transition:transform .18s,border-color .18s}.feature:hover{transform:translateY(-3px);border-color:#cbd3ff}.feature-icon{font-size:26px;width:48px;height:48px;border-radius:15px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px}.feature h4{margin:0 0 7px;font-size:15px}.feature p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.chat-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px}.chat-panel{height:520px;display:flex;flex-direction:column;padding:0;overflow:hidden}.chat-head{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.chat-head strong{font-size:14px}.status{font-size:11px;color:var(--green)}.messages{flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:13px}.message{max-width:86%;padding:12px 14px;border-radius:15px;font-size:13px;line-height:1.65;white-space:pre-wrap}.message.bot{background:#f0f2ff;align-self:flex-start;border-bottom-left-radius:5px}.message.user{background:var(--blue);color:white;align-self:flex-end;border-bottom-right-radius:5px}.chat-compose{border-top:1px solid var(--line);padding:13px;display:flex;gap:8px}.chat-compose input{flex:1;min-width:0;border:1px solid var(--line);border-radius:12px;padding:12px;outline:none}.chat-compose input:focus,input:focus,select:focus,textarea:focus{border-color:#8292ff;box-shadow:0 0 0 3px #4263eb18;outline:none}.chat-side h4{margin:0 0 12px}.prompt{display:block;text-align:left;width:100%;padding:11px;margin:7px 0;border:1px solid var(--line);background:#fff;border-radius:11px;color:#56617b;font-size:12px}.prompt:hover{border-color:#b7c2ff;color:var(--blue)}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:12px;font-weight:750;color:#59647f}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--text)}.field textarea{min-height:90px;resize:vertical}.subject{display:flex;align-items:center;gap:12px}.subject-icon{height:44px;width:44px;border-radius:13px;display:grid;place-items:center;background:#f0efff;font-size:22px}.subject h4{margin:0 0 4px}.subject p{margin:0;color:var(--muted);font-size:12px}.chapter-list{display:grid;gap:8px;margin-top:16px}.chapter{padding:12px;border:1px solid var(--line);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}.chapter button{flex-shrink:0}.quiz-question{font-size:17px;font-weight:800;line-height:1.5;margin:15px 0}.answer{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;background:white;padding:12px;margin:8px 0;color:var(--text)}.answer:hover{border-color:#aab6ff}.answer.correct{background:#e6f8f0;border-color:#69c9a5}.answer.wrong{background:#fff0f0;border-color:#efaaaa}.progress{height:8px;background:#edf0f7;border-radius:99px;overflow:hidden}.progress span{height:100%;display:block;background:linear-gradient(90deg,var(--blue),var(--purple));width:0;transition:width .2s}.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}.footer{margin-top:30px;text-align:center;font-size:11px;color:#98a1b6}.notice{padding:12px 14px;border-radius:12px;background:#fff7e6;border:1px solid #f4e1b1;color:#806021;font-size:12px;line-height:1.55;margin-top:12px}.toast{position:fixed;bottom:20px;right:20px;background:#18213d;color:white;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:13px;display:none;z-index:5}.menu-toggle{display:none}
+body.dark{--bg:#111626;--panel:#1b2235;--text:#eef1ff;--muted:#a4adc7;--line:#303950;--soft:#282f4d;--shadow:0 12px 35px #0002}body.dark .side-note{background:#262b46;color:#bbc4e4}body.dark .side-note strong{color:#f1f3ff}body.dark .message.bot{background:#292f4b}body.dark .prompt,body.dark .answer,body.dark .field input,body.dark .field select,body.dark .field textarea,body.dark .chat-compose input{background:#1b2235;color:var(--text)}body.dark .chapter{border-color:var(--line)}body.dark .notice{background:#3b3222;color:#f0dca6;border-color:#62502a}
+
+.logo{overflow:hidden;background:#fff;padding:2px}.logo img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.brand-hero{font-size:clamp(48px,7vw,82px)!important;letter-spacing:2px!important;font-weight:950;margin:16px 0 8px!important;text-shadow:0 5px 20px #101c5c35}.brand-hero span{color:#36d5ff}
+.starfield{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.twinkle{position:absolute;color:#ffd84d;text-shadow:0 0 8px #ffd84d,0 0 18px #ffd84d88;animation:twinkle var(--dur,3s) ease-in-out infinite alternate;opacity:.18}
+@keyframes twinkle{0%{opacity:.12;transform:scale(.7) rotate(0)}50%{opacity:.9}100%{opacity:.22;transform:scale(1.25) rotate(30deg)}}
+.sidebar,.main{position:relative;z-index:1}.profile-modal{position:fixed;inset:0;background:#0b1027a8;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.profile-modal.show{display:flex}.profile-card{background:var(--panel);color:var(--text);width:min(440px,100%);border-radius:20px;padding:24px;box-shadow:0 25px 80px #0004}.profile-preview{width:76px;height:76px;border-radius:50%;object-fit:cover;background:var(--soft);border:3px solid var(--line)}
+.extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}.extra-grid .card{box-shadow:none}.mini-field{display:grid;gap:6px;margin:10px 0}.mini-field label{font-size:12px;font-weight:700}.mini-field input,.mini-field select,.mini-field textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text)}
+@media(max-width:760px){.extra-grid{grid-template-columns:1fr}}
+
+
+.welcome-brand{font-size:clamp(42px,7.5vw,92px)!important;line-height:1.02!important;font-weight:950!important;letter-spacing:-2px!important;margin:15px 0 10px!important;max-width:1000px;text-shadow:0 8px 40px #6b5cff35}.welcome-brand span{display:block;background:linear-gradient(95deg,#6ee7ff,#a78bfa 48%,#ffe27a);-webkit-background-clip:text;background-clip:text;color:transparent}.welcome-subtitle{font-size:clamp(19px,2.5vw,30px)!important;font-weight:700!important;margin:0 0 12px!important}
+.hero{min-height:330px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 85% 18%,#a78bfa60,transparent 25%),linear-gradient(125deg,#11142f 0%,#22245b 48%,#45318d 100%)!important;color:#fff!important;border:1px solid #8275ff55;box-shadow:0 22px 70px #16133c30!important;position:relative;overflow:hidden}.hero p{color:#e0e4ff!important;max-width:720px;font-size:16px!important;line-height:1.8}.hero .eyebrow{color:#f7dc70!important;letter-spacing:2.2px}.hero:after{content:"✦";position:absolute;right:7%;top:13%;font-size:clamp(90px,18vw,210px);color:#fff3;text-shadow:0 0 50px #8edcff88;pointer-events:none}
+.ai-banner{display:flex;gap:16px;align-items:center;margin-bottom:16px;background:linear-gradient(120deg,#f2edff,#eef9ff)!important}.ai-banner p{margin:5px 0 0;color:#5b6381;line-height:1.6;font-size:13px}.ai-banner-icon{font-size:35px;color:#7157ed}.ai-status{font-size:12px;border-radius:30px;padding:7px 10px;background:#fff3c4;color:#805d00}.ai-status.online{background:#d9fbe9;color:#126a48}.ai-status.offline{background:#ffe0e0;color:#9c2727}
+.tutor-context{display:flex;gap:12px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);font-size:12px}.tutor-context label{display:flex;gap:7px;align-items:center}.tutor-context select{border:1px solid var(--line);border-radius:8px;padding:5px;background:var(--panel);color:var(--text)}
+.liveclass-hero{padding:30px;border-radius:22px;color:#fff;background:radial-gradient(circle at 90% 10%,#38bdf855,transparent 25%),linear-gradient(125deg,#12152f,#292566 55%,#5a36a6);box-shadow:0 20px 65px #251e7040;overflow:hidden}.liveclass-hero h2{font-size:clamp(28px,4.4vw,54px);line-height:1.05;letter-spacing:-1px;margin:12px 0}.liveclass-hero p{color:#e1e5ff;line-height:1.75;max-width:820px}.liveclass-hero .eyebrow{color:#ffe27a;letter-spacing:2px}.start-class-btn{width:100%;padding:15px!important;font-size:16px!important;font-weight:850!important;background:linear-gradient(95deg,#5b55f6,#8055e9)!important;box-shadow:0 8px 25px #6553ed50!important}
+.small-note{font-size:11px;line-height:1.6;color:var(--muted)}.classroom-card{background:linear-gradient(155deg,#11152f,#242451 65%,#3c2878)!important;color:#fff!important;overflow:hidden;position:relative}.classroom-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#d8dcff}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#f8d66d;box-shadow:0 0 12px #f8d66d;margin-right:8px}.classroom-visual{height:175px;position:relative;display:grid;place-items:center;overflow:hidden}.orbit{position:absolute;border:1px solid #8ea1ff50;border-radius:50%;width:160px;height:160px;transform:rotate(-30deg) scaleX(1.4)}.orbit-two{width:210px;height:210px;transform:rotate(30deg) scaleX(1.4);border-color:#c4a5ff40}.teacher-core{width:86px;height:86px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(135deg,#4d8dff,#9457f3);font-size:42px;box-shadow:0 0 55px #7d7bff80;z-index:1}.teacher-core small{font-size:8px;letter-spacing:1px}.floating-star{position:absolute;color:#ffe27a;text-shadow:0 0 15px #ffe27a;animation:twinkle 2.4s infinite alternate}.fs-one{top:20px;right:20%}.fs-two{bottom:20px;left:22%;animation-delay:.7s}.classroom-card h3{font-size:22px;margin:6px 0}.classroom-card p{color:#d4d8ff;line-height:1.7;font-size:13px}.speech-controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.speech-controls button{color:#fff;border-color:#ffffff30}.class-progress{height:5px;background:#ffffff20;border-radius:9px;overflow:hidden}.class-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#6ee7ff,#ffe27a);transition:width .4s}.lesson-content-card{min-height:200px}.lesson-content-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.lesson-content h4{margin:18px 0 6px;color:var(--purple)}.lesson-content p,.lesson-content li{line-height:1.8;font-size:14px}.lesson-content pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--soft);padding:12px;border-radius:10px}.lesson-content .lesson-section{border-bottom:1px solid var(--line);padding:8px 0 16px}.lesson-content .lesson-section:last-child{border:0}
+.message.pending{opacity:.75;font-style:italic}.message.error{background:#ffe2e2;color:#8e2222}.chat-compose input{min-width:0}
+@media(max-width:720px){.hero{min-height:300px}.welcome-brand{letter-spacing:-1px}.classroom-visual{height:135px}.liveclass-hero{padding:22px}}
+
+@media(max-width:1050px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.chat-layout{grid-template-columns:1fr}.chat-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.chat-side h4{grid-column:1/-1}}
+@media(max-width:760px){.sidebar{position:fixed;z-index:4;left:-270px;top:0;bottom:0;transition:left .2s;box-shadow:var(--shadow)}.sidebar.open{left:0}.main{padding:18px 14px 30px}.menu-toggle{display:inline-block}.topbar{margin-bottom:20px}.topbar h1{font-size:22px}.top-actions .pill{display:none}.grid-3,.grid-2{grid-template-columns:1fr}.grid-4{gap:10px}.stat{align-items:flex-start}.stat-icon{width:38px;height:38px}.stat strong{font-size:20px}.card{padding:15px}.hero{border-radius:19px}.chat-panel{height:500px}.chat-side{grid-template-columns:1fr}.top-actions{gap:6px}}
+@media(max-width:400px){.grid-4{grid-template-columns:1fr 1fr}.stat{display:block}.stat-icon{margin-bottom:8px}.hero h2{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="starfield" id="starfield" aria-hidden="true"></div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo"><img id="brandLogo" src="stysa-logo.png" alt="Stysa AI logo"></div><div><div class="brand-name">Stysa AI</div><div class="brand-sub">LEARN • GROW • THRIVE</div></div></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-view="home"><span class="ico">⌂</span>Dashboard</button>
+    <button data-view="tutor"><span class="ico">✧</span>AI Tutor</button>
+    <button data-view="liveclass"><span class="ico">▶</span>Live AI Class</button>
+    <button data-view="learn"><span class="ico">▤</span>Explore subjects</button>
+    <button data-view="quiz"><span class="ico">☑</span>Practice quiz</button>
+    <button data-view="planner"><span class="ico">▦</span>Study planner</button>
+  </nav>
+  <div class="nav-label">YOUR WELL-BEING</div>
+  <nav class="nav">
+    <button data-view="wellness"><span class="ico">♡</span>Wellness</button>
+    <button data-view="sustainability"><span class="ico">♧</span>Sustainability</button>
+    <button data-view="career"><span class="ico">↗</span>Career guide</button>
+  </nav>
+  <div class="side-bottom"><div class="side-note"><strong>Small steps. Big progress.</strong>Learn at your pace, take breaks, and celebrate what you understand.</div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:10px"><button class="pill menu-toggle" id="menuToggle" aria-label="Open menu">☰</button><div><div class="eyebrow">YOUR PERSONAL LEARNING SPACE</div><h1 id="pageTitle">Good evening 👋</h1></div></div>
+  <div class="top-actions"><button class="pill" id="themeToggle" aria-label="Toggle dark theme">☾ Theme</button><button class="avatar" id="profileOpen" title="Edit profile" aria-label="Edit profile">S</button></div>
+</header>
+
+<section class="view active" id="view-home">
+  <div class="hero"><div class="eyebrow">YOUR FUTURE STARTS HERE</div><h2 class="welcome-brand">WELCOME TO <span>STYSA AI</span></h2><h3 class="welcome-subtitle">Your Future. Your Learning. Your STYSA AI.</h3><p>Your learning companion for understanding tough concepts, preparing for exams, building healthy habits, and discovering what comes next.</p><button class="btn btn-white" data-go="tutor">Ask your AI tutor&nbsp; ↗</button></div>
+  <div class="section-head"><h3>Your learning snapshot</h3><span>Saved on this device</span></div>
+  <div class="grid grid-4">
+    <div class="card stat"><div class="stat-icon">📚</div><div><strong id="statLessons">0</strong><span>Lessons explored</span></div></div>
+    <div class="card stat"><div class="stat-icon">🎯</div><div><strong id="statQuizzes">0</strong><span>Quizzes completed</span></div></div>
+    <div class="card stat"><div class="stat-icon">🗓️</div><div><strong id="statTasks">0</strong><span>Study tasks saved</span></div></div>
+    <div class="card stat"><div class="stat-icon">🌱</div><div><strong>1 step</strong><span>Start today</span></div></div>
+  </div>
+  <div class="section-head"><h3>What would you like to do?</h3><span>Choose a starting point</span></div>
+  <div class="grid grid-3">
+    <div class="card feature" data-go="tutor"><div class="feature-icon">✧</div><h4>Ask the AI tutor</h4><p>Ask questions, request examples, and explore a topic in simple language.</p></div>
+    <div class="card feature" data-go="learn"><div class="feature-icon">📘</div><h4>Explore subjects</h4><p>Choose your level and browse sample learning topics.</p></div>
+    <div class="card feature" data-go="quiz"><div class="feature-icon">🧠</div><h4>Test your knowledge</h4><p>Try a short quiz and get immediate feedback.</p></div>
+    <div class="card feature" data-go="planner"><div class="feature-icon">🗓️</div><h4>Plan your study</h4><p>Save study tasks and build a realistic routine.</p></div>
+    <div class="card feature" data-go="wellness"><div class="feature-icon">💚</div><h4>Care for yourself</h4><p>Try breathing, breaks, and healthy study habits.</p></div>
+    <div class="card feature" data-go="career"><div class="feature-icon">🚀</div><h4>Explore careers</h4><p>Reflect on interests and discover possible next steps.</p></div>
+  </div>
+</section>
+
+<section class="view" id="view-tutor">
+  <div class="section-head" style="margin-top:0"><h3>Ask Stysa AI anything</h3><span id="aiStatus" class="ai-status">Checking AI connection…</span></div>
+  <div class="card ai-banner"><div class="ai-banner-icon">✦</div><div><strong>Ask about any subject or question</strong><p>Get step-by-step explanations, examples, analogies, practice questions, and follow-up help. Select your school level for more relevant explanations.</p></div></div>
+  <div class="chat-layout">
+    <div class="card chat-panel">
+      <div class="chat-head"><strong>✧ Stysa AI Tutor</strong><span class="status" id="chatStatus">● Ready</span></div>
+      <div class="tutor-context"><label>Student level <select id="chatLevel"><option>Primary school</option><option>Class 6–8</option><option>Class 9–10</option><option>Class 11–12</option><option>College / University</option><option>Professional / general</option></select></label><label>Explain in <select id="chatLanguage"><option>English</option><option>Tamil</option><option>Simple English</option></select></label></div>
+      <div class="messages" id="messages"><div class="message bot">Hello! I'm Stysa AI. Ask me a question from any subject—or ask something outside education. I'll try to explain clearly with examples. For live AI answers, start the local backend included with this website.</div></div>
+      <form class="chat-compose" id="chatForm"><input id="chatInput" placeholder="Ask any question…" autocomplete="off" required><button class="btn btn-primary" id="chatSend" type="submit">Send ↗</button></form>
+    </div>
+    <div class="card chat-side"><h4>Try a question</h4><button class="prompt">Explain photosynthesis with a simple example</button><button class="prompt">Solve a quadratic equation step by step</button><button class="prompt">Explain World War I causes</button><button class="prompt">Help me understand a Python error</button><div class="notice">Live AI requires the included backend and your own Gemini API key. The key stays on the server—not in this HTML file.</div><button class="btn btn-ghost" id="checkAI">Check AI connection</button></div>
+  </div>
+</section>
+
+<section class="view" id="view-liveclass">
+  <div class="liveclass-hero"><div class="eyebrow">STYSA AI · LIVE LEARNING STUDIO</div><h2>YOUR PERSONAL AI CLASSROOM</h2><p>Choose your standard, subject, and topic. Press <b>Start Live Class</b> to get a structured lesson with concept explanations, worked examples, common mistakes, and a practice check—spoken aloud by your browser.</p></div>
+  <div class="grid grid-2" style="margin-top:18px">
+    <div class="card">
+      <h3 style="margin-top:0">Set up your class</h3>
+      <div class="field"><label for="classLevel">Your standard / level</label><select id="classLevel"><option>Primary school</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option selected>Class 10</option><option>Class 11</option><option>Class 12</option><option>College / University</option><option>Professional / general</option></select></div>
+      <div class="field"><label for="classBoard">Board / curriculum</label><select id="classBoard"><option>CBSE / NCERT</option><option>Tamil Nadu State Board</option><option>ICSE</option><option>Other / general</option></select></div>
+      <div class="field"><label for="classSubject">Subject</label><select id="classSubject"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Social Science</option><option>Computer Science</option><option>Economics</option><option>Any other subject</option></select></div>
+      <div class="field"><label for="classTopic">Topic or exact question</label><input id="classTopic" required placeholder="e.g. Light — refraction through lenses"></div>
+      <div class="field"><label for="classDuration">Lesson depth</label><select id="classDuration"><option value="short">Quick concept · 5–8 minutes</option><option value="full" selected>Full class · 15–25 minutes</option><option value="deep">Deep dive · detailed lesson</option></select></div>
+      <button class="btn btn-primary start-class-btn" id="startClass">▶ Start Live Class</button>
+      <p class="small-note">This is a spoken AI lesson, not a video call with a human teacher. It needs the backend running and internet access for AI generation. Speech playback uses your browser's text-to-speech voice.</p>
+    </div>
+    <div class="card classroom-card">
+      <div class="classroom-top"><div><span class="live-dot"></span><strong id="classState">CLASSROOM STANDBY</strong></div><span id="classClock">Ready when you are</span></div>
+      <div class="classroom-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="teacher-core">✦<small>STYSA AI</small></div><div class="floating-star fs-one">✧</div><div class="floating-star fs-two">✦</div></div>
+      <h3 id="classLessonTitle">Your AI teacher is ready</h3><p id="classLessonSummary">Your lesson will appear here with a clear concept explanation, examples, and questions.</p>
+      <div class="speech-controls"><button class="btn btn-ghost" id="pauseSpeech" disabled>Ⅱ Pause</button><button class="btn btn-ghost" id="resumeSpeech" disabled>▶ Resume</button><button class="btn btn-ghost" id="stopSpeech" disabled>■ End class</button></div>
+      <div id="classProgress" class="class-progress"><span></span></div><p id="speechStatus" class="small-note">No class is running.</p>
+    </div>
+  </div>
+  <div class="card lesson-content-card" style="margin-top:18px"><div class="lesson-content-heading"><h3>Class board & notes</h3><button class="btn btn-ghost" id="speakAgain" disabled>🔊 Read lesson aloud again</button></div><div id="classLessonContent" class="lesson-content"><div class="empty">Start a class to display your lesson notes here.</div></div></div>
+</section>
+
+<section class="view" id="view-learn">
+  <div class="section-head" style="margin-top:0"><h3>Explore subjects</h3><span>Sample topics to get started</span></div>
+  <div class="card">
+    <div class="grid grid-3">
+      <div class="field"><label for="level">Learning level</label><select id="level"><option>Primary school</option><option selected>Class 10</option><option>Class 11–12</option><option>College / University</option><option>Professional learning</option></select></div>
+      <div class="field"><label for="board">Board / curriculum</label><select id="board"><option>CBSE</option><option>Tamil Nadu State Board</option><option>ICSE</option><option>Other / not selected</option></select></div>
+      <div class="field"><label for="subject">Subject</label><select id="subject"><option>Mathematics</option><option>Science</option><option>English</option><option>Computer Science</option><option>Social Science</option></select></div>
+    </div>
+    <button class="btn btn-primary" id="loadTopics">Show sample topics</button>
+    <div class="notice">Curriculum notice: the topics below are illustrative starter content, not a verified official syllabus. Verify against your current textbook or board website.</div>
+    <div id="topics" class="chapter-list"></div>
+  </div>
+  <div id="lessonBox" class="card" style="display:none;margin-top:16px"></div>
+</section>
+
+<section class="view" id="view-quiz">
+  <div class="section-head" style="margin-top:0"><h3>Quick knowledge check</h3><span>Sample quiz</span></div>
+  <div class="grid grid-2">
+    <div class="card"><div class="eyebrow">QUESTION <span id="qNumber">1</span> OF 5</div><div class="progress" style="margin-top:12px"><span id="quizProgress"></span></div><div class="quiz-question" id="questionText"></div><div id="answers"></div><div id="quizFeedback" style="font-size:13px;line-height:1.6;margin:12px 0"></div><button class="btn btn-primary" id="nextQuestion" disabled>Next question →</button></div>
+    <div class="card"><div class="feature-icon">🎯</div><h3>Practice without pressure</h3><p style="color:var(--muted);line-height:1.7;font-size:13px">Answer each question, read the explanation, and use mistakes as clues about what to review. This is a general sample quiz, not an official exam paper.</p><div class="section-head"><h3>Your result</h3></div><div style="font-size:34px;font-weight:850" id="quizScore">—</div><p style="color:var(--muted);font-size:12px" id="quizScoreText">Finish the quiz to see your score.</p><button class="btn btn-ghost" id="restartQuiz">Restart quiz</button></div>
+  </div>
+</section>
+
+<section class="view" id="view-planner">
+  <div class="section-head" style="margin-top:0"><h3>Study planner</h3><span>Tasks are saved in this browser</span></div>
+  <div class="grid grid-2">
+    <div class="card"><h3 style="margin-top:0">Add a study task</h3><form id="taskForm"><div class="field"><label for="taskTitle">What will you study?</label><input id="taskTitle" placeholder="e.g. Revise quadratic equations" required maxlength="120"></div><div class="grid grid-2"><div class="field"><label for="taskDate">Date</label><input id="taskDate" type="date" required></div><div class="field"><label for="taskDuration">Duration</label><select id="taskDuration"><option>15 minutes</option><option selected>30 minutes</option><option>45 minutes</option><option>60 minutes</option><option>90 minutes</option></select></div></div><button class="btn btn-primary" type="submit">Add task +</button></form></div>
+    <div class="card"><h3 style="margin-top:0">Your tasks</h3><div id="taskList" class="chapter-list"></div><div class="progress" style="margin-top:18px"><span id="taskProgress"></span></div><p id="taskSummary" style="color:var(--muted);font-size:12px">No tasks yet. Add one small, achievable task.</p></div>
+  </div>
+</section>
+
+<section class="view" id="view-wellness">
+  <div class="section-head" style="margin-top:0"><h3>Student wellness</h3><span>General well-being resources</span></div>
+  <div class="grid grid-3">
+    <div class="card feature"><div class="feature-icon">🌬️</div><h4>One-minute breathing</h4><p>Relax your shoulders. Breathe in gently for 4 counts and out for 4 counts, without forcing it. Repeat comfortably for one minute.</p></div>
+    <div class="card feature"><div class="feature-icon">👀</div><h4>Screen break</h4><p>Look away from your screen at a distant object, blink normally, stand up, and stretch gently.</p></div>
+    <div class="card feature"><div class="feature-icon">🌙</div><h4>Rest supports learning</h4><p>Keep a consistent sleep routine where possible. Rest, meals, movement, and downtime belong in a sustainable study plan.</p></div>
+  </div>
+  <div class="notice">Stysa AI provides general educational wellness information, not medical diagnosis or treatment. If you feel unsafe or overwhelmed, contact a trusted adult or qualified professional.</div>
+</section>
+
+<section class="view" id="view-sustainability">
+  <div class="section-head" style="margin-top:0"><h3>Sustainability hub</h3><span>Learn • Act • Reflect</span></div>
+  <div class="grid grid-3">
+    <div class="card feature"><div class="feature-icon">💧</div><h4>Save water</h4><p>Notice where water is used at home or school. Choose one practical way to reduce waste and track what you changed.</p></div>
+    <div class="card feature"><div class="feature-icon">♻️</div><h4>Reduce waste</h4><p>Separate reusable, recyclable, and general waste according to your local collection rules.</p></div>
+    <div class="card feature"><div class="feature-icon">🌿</div><h4>Explore biodiversity</h4><p>Observe local plants, insects, and birds. Record what you see without disturbing wildlife.</p></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>My small action</h3><p style="color:var(--muted);font-size:13px">Write one realistic action you can take this week.</p><textarea id="greenAction" placeholder="This week, I will…"></textarea><button class="btn btn-primary" id="saveGreen" style="margin-top:10px">Save my action</button><p id="greenSaved" style="font-size:12px;color:var(--green)"></p></div>
+  <div class="section-head"><h3>EcoLife AI · Daily sustainability coach</h3><span>Self-reported habits</span></div>
+  <div class="extra-grid">
+    <div class="card"><div class="feature-icon">🌱</div><h4>Today's eco-challenges</h4><div id="ecoChallengeList"></div><button class="btn btn-primary" id="saveEco">Save progress</button><p id="ecoSummary" style="font-size:12px;color:var(--muted)"></p></div>
+    <div class="card"><div class="feature-icon">📊</div><h4>Real-world impact tracker</h4><p style="font-size:12px;color:var(--muted)">Label each result as an estimate or measured value. This site does not independently verify claims.</p>
+      <form id="impactForm"><div class="mini-field"><label>Activity</label><select id="impactType"><option>Water saved</option><option>Waste collected/sorted</option><option>Trees planted</option><option>Energy reduced</option><option>Food waste avoided</option></select></div><div class="mini-field"><label>Amount and unit</label><input id="impactAmount" type="number" min="0" step="any" required placeholder="Amount, e.g. 2"></div><div class="mini-field"><label>Unit</label><select id="impactUnit"><option>litres</option><option>kg</option><option>trees</option><option>kWh</option><option>meals</option></select></div><div class="mini-field"><label>Evidence status</label><select id="impactEvidence"><option>Student estimate</option><option>Measured by me</option><option>Reviewed by teacher</option></select></div><button class="btn btn-primary">Log result</button></form><div id="impactList" class="chapter-list"></div>
+    </div>
+    <div class="card"><div class="feature-icon">🏙️</div><h4>Eco-city simulation</h4><p style="font-size:12px;color:var(--muted)">Allocate 10 points across energy, water, transport, green space and affordable housing.</p><div id="cityControls"></div><button class="btn btn-primary" id="scoreCity">Evaluate city</button><p id="cityResult" style="font-size:12px;line-height:1.6"></p></div>
+  </div>
+  <div class="section-head"><h3>Sustainable Development Learning Academy</h3><span>Aligned to relevant UN SDGs</span></div>
+  <div class="extra-grid">
+    <div class="card feature" data-greenlesson="Climate change"><div class="feature-icon">🌍</div><h4>Climate & pollution</h4><p>Climate risks, air quality, adaptation, and practical action.</p></div>
+    <div class="card feature" data-greenlesson="Biodiversity"><div class="feature-icon">🦋</div><h4>Biodiversity</h4><p>Habitats, ecosystems, and protecting local wildlife.</p></div>
+    <div class="card feature" data-greenlesson="Clean water"><div class="feature-icon">💧</div><h4>Clean water & sanitation</h4><p>Water conservation, sanitation, and safe water access.</p></div>
+    <div class="card feature" data-greenlesson="Renewable energy"><div class="feature-icon">☀️</div><h4>Renewable energy</h4><p>Solar, wind, energy efficiency, and trade-offs.</p></div>
+    <div class="card feature" data-greenlesson="Responsible consumption"><div class="feature-icon">♻️</div><h4>Responsible consumption</h4><p>Repair, reuse, recycling, and food waste reduction.</p></div>
+    <div class="card feature" data-greenlesson="People and equality"><div class="feature-icon">🤝</div><h4>People & equality</h4><p>Poverty, fairness, decent work, and inclusive communities.</p></div>
+  </div>
+  <div class="card" id="greenLessonBox" style="margin-top:14px"><h4>Lesson preview</h4><p style="font-size:12px;color:var(--muted)">Choose a sustainability topic above for a short lesson and activity.</p></div>
+  <div class="extra-grid">
+    <div class="card"><h4>Community Action Marketplace</h4><p style="font-size:12px;color:var(--muted)">Create school garden, book exchange, clean-up, or food-waste project ideas. Use teacher or guardian supervision for events.</p><form id="communityForm"><div class="mini-field"><label>Project idea</label><input id="communityName" required maxlength="100" placeholder="e.g. Classroom book exchange"></div><button class="btn btn-primary">Add idea</button></form><div id="communityList" class="chapter-list"></div></div>
+    <div class="card"><h4>Green Innovation Lab</h4><p style="font-size:12px;line-height:1.7;color:var(--muted)">Try supervised projects: smart irrigation, solar-powered models, water monitoring, waste sorting demonstrations, or energy audits. Record methods and limitations.</p></div>
+    <div class="card"><h4>School & College Green League</h4><p style="font-size:12px;line-height:1.7;color:var(--muted)">A real league needs school accounts, moderation, and evidence review. This starter site does not publish rankings or verify school claims.</p><div class="notice">SDGs highlighted: 3 Good Health, 4 Quality Education, 6 Clean Water, 7 Clean Energy, 11 Sustainable Cities, 12 Responsible Consumption, 13 Climate Action.</div></div>
+  </div>
+
+</section>
+
+<section class="view" id="view-career">
+  <div class="section-head" style="margin-top:0"><h3>Career explorer</h3><span>Explore, don't limit yourself</span></div>
+  <div class="card"><h3 style="margin-top:0">What are you curious about?</h3><p style="color:var(--muted);font-size:13px">Choose an interest to see possible starting points. These are exploration ideas, not a test or a prediction of your future.</p><div class="grid grid-3" id="careerCards">
+    <div class="card feature" data-career="technology"><div class="feature-icon">💻</div><h4>Technology</h4><p>Try beginner coding, build a small website, or explore how apps work.</p></div>
+    <div class="card feature" data-career="health"><div class="feature-icon">🩺</div><h4>Health & science</h4><p>Explore biology, public health, lab science, or healthcare careers.</p></div>
+    <div class="card feature" data-career="creative"><div class="feature-icon">🎨</div><h4>Creative fields</h4><p>Try design, writing, animation, photography, or media projects.</p></div>
+  </div><div id="careerResult" class="notice" style="display:none"></div></div>
+
+  <div class="section-head"><h3>AI Career Discovery</h3><span>Reflection tool, not a validated aptitude test</span></div>
+  <div class="card"><p style="font-size:12px;color:var(--muted)">Answer a few questions to get interest-based suggestions. These scores are not scientific aptitude scores and should never decide your future.</p>
+    <form id="careerAssessment" class="grid grid-2">
+      <div class="mini-field"><label>Education level</label><select id="careerLevel"><option>Classes 6–8</option><option>Classes 9–10</option><option>Classes 11–12</option><option>College / University</option></select></div>
+      <div class="mini-field"><label>Favorite subject area</label><select id="careerInterest"><option value="tech">Maths and technology</option><option value="health">Biology and health</option><option value="people">People and society</option><option value="creative">Art and communication</option><option value="business">Business and finance</option><option value="practical">Hands-on practical work</option></select></div>
+      <div class="mini-field"><label>Preferred activity</label><select id="careerActivity"><option value="build">Build systems and solve puzzles</option><option value="help">Help people and research health</option><option value="create">Design, write, or create</option><option value="lead">Organize, plan, or lead</option><option value="hands">Repair, build, or work outdoors</option></select></div>
+      <div class="mini-field"><label>Strength you want to use</label><select id="careerStrength"><option>Logical thinking</option><option>Empathy and communication</option><option>Creativity</option><option>Leadership</option><option>Practical problem solving</option></select></div>
+      <div style="grid-column:1/-1"><button class="btn btn-primary">Find possible career matches</button></div>
+    </form><div id="careerMatches" class="chapter-list"></div>
+  </div>
+  <div class="section-head"><h3>Personalized career roadmap & skill gap analyzer</h3></div>
+  <div class="extra-grid">
+    <div class="card"><h4>Career roadmap</h4><div class="mini-field"><label>Target career</label><select id="roadmapCareer"><option>Software engineer</option><option>AI engineer</option><option>Cybersecurity analyst</option><option>Doctor</option><option>Teacher</option><option>Designer</option><option>Environmental scientist</option><option>Financial analyst</option><option>Entrepreneur</option><option>Skilled trades professional</option></select></div><div class="mini-field"><label>Time available weekly</label><select id="roadmapHours"><option>2 hours</option><option selected>5 hours</option><option>8 hours</option><option>10+ hours</option></select></div><button class="btn btn-primary" id="makeRoadmap">Create roadmap</button><div id="roadmapResult" class="chapter-list"></div></div>
+    <div class="card"><h4>Skill gap checklist</h4><p style="font-size:12px;color:var(--muted)">Tick skills you already have, then choose one gap to work on. This is self-reported.</p><div id="skillChecklist"></div><button class="btn btn-primary" id="analyzeSkills">Analyze gaps</button><div id="skillResult" class="chapter-list"></div></div>
+    <div class="card"><h4>Career explorer</h4><div class="mini-field"><label>Choose a career</label><select id="careerExplorer"><option>Software engineer</option><option>AI engineer</option><option>Cybersecurity analyst</option><option>Doctor</option><option>Nurse</option><option>Teacher</option><option>Scientist</option><option>Psychologist</option><option>Entrepreneur</option><option>Designer</option><option>Financial analyst</option><option>Government service</option><option>Skilled trades</option><option>Environmental scientist</option></select></div><button class="btn btn-ghost" id="exploreCareer">Explore role</button><div id="careerDetail" style="font-size:12px;line-height:1.7;margin-top:12px;color:var(--muted)"></div></div>
+  </div>
+  <div class="section-head"><h3>AI Career Mentor</h3><span>Text demo until live AI is connected</span></div>
+  <div class="card"><p style="font-size:12px;color:var(--muted)">Ask questions or compare options. This offline version provides basic guided responses; real AI voice/text mentoring requires a secure backend integration.</p><div id="careerMentorMessages" class="chapter-list"><div class="message bot">Tell me two careers you are considering, and what matters to you.</div></div><form id="careerMentorForm" style="display:flex;gap:8px;margin-top:12px"><input id="careerMentorInput" required placeholder="Ask about careers…" style="flex:1;min-width:0;padding:12px;border:1px solid var(--line);border-radius:11px"><button class="btn btn-primary">Send</button></form></div>
+  <div class="section-head"><h3>Resume & Interview AI</h3></div>
+  <div class="extra-grid">
+    <div class="card"><h4>Resume draft builder</h4><form id="resumeForm"><div class="mini-field"><label>Target role</label><input id="resumeRole" required placeholder="e.g. Junior web developer"></div><div class="mini-field"><label>Skills</label><textarea id="resumeSkills" placeholder="Skills you genuinely have"></textarea></div><div class="mini-field"><label>Projects / experience</label><textarea id="resumeProjects" placeholder="What you built and your contribution"></textarea></div><button class="btn btn-primary">Create draft</button></form></div>
+    <div class="card"><h4>Resume draft</h4><pre id="resumeOutput" style="white-space:pre-wrap;font:12px/1.6 inherit;color:var(--text)">Your draft will appear here.</pre><button class="btn btn-ghost" id="copyResume">Copy draft</button><p style="font-size:11px;color:var(--muted)">ATS checklist: use standard headings, truthful metrics, role-relevant skills, clear dates, and proofread links. No real ATS score is calculated here.</p></div>
+    <div class="card"><h4>Mock interview practice</h4><p id="interviewQuestion" style="font-size:13px;line-height:1.7">Tell me about a project you worked on, a challenge you faced, and what you learned.</p><button class="btn btn-ghost" id="newInterview">New question</button><div class="notice">Practice speaking your answer, then check whether you explained the situation, your action, and the result.</div></div>
+  </div>
+</section>
+<div class="footer">Stysa AI · Learn Smarter. Live Healthier. Build a Better Future.<br>Starter prototype · Your tasks and preferences stay in this browser.</div>
+</main>
+</div>
+<div class="profile-modal" id="profileModal" role="dialog" aria-modal="true"><div class="profile-card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Edit profile</h3><button class="pill" id="profileClose">✕</button></div><div style="display:flex;gap:14px;align-items:center;margin:14px 0"><img class="profile-preview" id="profilePreview" src="stysa-logo.png" alt="Profile image preview"><div><strong id="profileDisplayName">Student</strong><p style="font-size:12px;color:var(--muted)">Name and image saved on this device.</p></div></div><form id="profileForm"><div class="mini-field"><label>Display name</label><input id="profileName" required maxlength="50" placeholder="Your name"></div><div class="mini-field"><label>Profile image</label><input id="profileImage" type="file" accept="image/png,image/jpeg,image/webp"></div><button class="btn btn-primary">Save profile</button></form><p style="font-size:11px;color:var(--muted)">This does not create an online account; cloud profiles need authentication and a database.</p></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem('stysan_'+key))??fallback}catch{return fallback}};
+const write=(key,value)=>localStorage.setItem('stysan_'+key,JSON.stringify(value));
+function toast(msg){const t=$('#toast');t.textContent=msg;t.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.style.display='none',2300)}
+const titles={home:'Good evening 👋',tutor:'AI Tutor',learn:'Explore subjects',quiz:'Practice quiz',planner:'Study planner',wellness:'Student wellness',sustainability:'Sustainability hub',career:'Career guide'};
+function go(view){$$('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+view));$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));$('#pageTitle').textContent=titles[view]||'Stysa AI';$('#sidebar').classList.remove('open');if(view==='home')updateStats();window.scrollTo({top:0,behavior:'smooth'})}
+$$('[data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('#menuToggle').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
+$('#themeToggle').addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('stysan_dark',document.body.classList.contains('dark')?'1':'0')});
+if(localStorage.getItem('stysan_dark')==='1')document.body.classList.add('dark');
+
+const demoReplies=[
+{keys:['photosynthesis'],text:'Photosynthesis is how green plants make their own food. Their leaves use sunlight, water, and carbon dioxide to make glucose (a sugar) and release oxygen. Think of a leaf as a tiny solar-powered food factory.'},
+{keys:['fraction','fractions'],text:'A fraction shows part of a whole. In 3/4, the bottom number (4) says the whole is split into 4 equal parts; the top number (3) says we have 3 of them. Imagine 3 slices of a pizza cut into 4 equal slices.'},
+{keys:['study plan','schedule','planner'],text:'Try this simple 60-minute session: 5 minutes to choose one goal, 25 minutes of focused study, a 5-minute break, 20 minutes of practice questions, and 5 minutes to write what you learned. Adjust it to your energy and commitments.'},
+{keys:['remember','memorize','memory'],text:'Try active recall: close your book and explain the idea from memory. Then check what you missed. Review again tomorrow and a few days later. Short retrieval practice usually helps more than rereading the same page repeatedly.'},
+{keys:['quadratic'],text:'A quadratic equation has a squared variable, often written ax² + bx + c = 0, where a is not zero. For example, x² − 5x + 6 = 0 can be factored into (x − 2)(x − 3) = 0, so x = 2 or x = 3. This is a sample explanation; check your course materials for the exact syllabus.'},
+{keys:['hello','hi','hey'],text:'Hi there! 👋 What are you learning today? Tell me your class or level, subject, and the topic you want to understand.'},
+{keys:['math','mathematics'],text:'Mathematics helps us study numbers, patterns, shapes, and relationships. I can show sample explanations for arithmetic, algebra, geometry, and more. Which specific topic are you working on?'},
+{keys:['stress','anxious','nervous'],text:'It can help to pause, take a few comfortable slow breaths, and break the work into one small next step. If stress feels intense or keeps affecting your daily life, consider talking with a trusted adult or qualified professional.'}
+];
+const API_BASE = 'http://127.0.0.1:8000';
+async function callAI(path, payload){
+  const response = await fetch(API_BASE + path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const data = await response.json().catch(()=>({detail:'The server returned an unreadable response.'}));
+  if(!response.ok) throw new Error(data.detail || 'AI request failed.');
+  return data;
+}
+async function checkAIConnection(){
+  try{const r=await fetch(API_BASE+'/api/health');const d=await r.json();$('#aiStatus').textContent=d.ai_configured?'● AI connected':'● Server running · add API key';$('#aiStatus').className='ai-status '+(d.ai_configured?'online':'offline');return d;}
+  catch(e){$('#aiStatus').textContent='● AI backend not connected';$('#aiStatus').className='ai-status offline';return null;}
+}
+$('#checkAI').addEventListener('click',async()=>{const d=await checkAIConnection();toast(d?(d.ai_configured?'AI connection is ready':'Server found, but GEMINI_API_KEY is missing'):'Start the Stysa AI backend first.')});
+function addMessage(text,who,extra=''){const div=document.createElement('div');div.className='message '+who+(extra?' '+extra:'');div.textContent=text;$('#messages').appendChild(div);$('#messages').scrollTop=$('#messages').scrollHeight;return div}
+async function sendChat(text){
+  if(!text.trim())return;
+  addMessage(text,'user');$('#chatInput').value='';$('#chatSend').disabled=true;$('#chatStatus').textContent='● Thinking…';
+  const pending=addMessage('Thinking through your question and preparing an explanation…','bot','pending');
+  try{
+    const data=await callAI('/api/chat',{message:text,level:$('#chatLevel').value,language:$('#chatLanguage').value});
+    pending.textContent=data.answer;pending.classList.remove('pending');
+  }catch(err){
+    pending.textContent='I could not reach the live AI service. '+err.message+' Start the backend using the included README, add your Gemini API key to the server environment, and try again.';
+    pending.classList.remove('pending');pending.classList.add('error');
+  }finally{$('#chatSend').disabled=false;$('#chatStatus').textContent='● Ready';}
+}
+$('#chatForm').addEventListener('submit',e=>{e.preventDefault();sendChat($('#chatInput').value)});
+$$('.prompt').forEach(b=>b.addEventListener('click',()=>sendChat(b.textContent)));
+
+const topicData={
+'Mathematics':['Real Numbers','Polynomials','Pair of Linear Equations','Quadratic Equations','Triangles'],
+'Science':['Chemical Reactions and Equations','Life Processes','Light: Reflection and Refraction','Electricity','Our Environment'],
+'English':['Reading comprehension','Grammar practice','Writing skills','Vocabulary building'],
+'Computer Science':['Algorithms and logic','HTML and CSS basics','Programming fundamentals','Data and databases'],
+'Social Science':['Resources and Development','Power Sharing','Money and Credit','Globalisation']
+};
+let lessons=read('lessons',0);
+function loadTopics(){const sub=$('#subject').value,level=$('#level').value,board=$('#board').value;const topics=topicData[sub]||[];$('#topics').innerHTML='';topics.forEach((topic,i)=>{const row=document.createElement('div');row.className='chapter';const label=document.createElement('span');label.textContent=(i+1)+'. '+topic;const btn=document.createElement('button');btn.className='btn btn-ghost';btn.textContent='Open lesson';btn.addEventListener('click',()=>openLesson(topic,sub,level,board));row.append(label,btn);$('#topics').appendChild(row)});$('#lessonBox').style.display='none'}
+$('#loadTopics').addEventListener('click',loadTopics);loadTopics();
+function openLesson(topic,sub,level,board){lessons++;write('lessons',lessons);updateStats();const box=$('#lessonBox');box.style.display='block';box.innerHTML='';const h=document.createElement('h3');h.textContent=topic;const meta=document.createElement('p');meta.style.cssText='color:var(--muted);font-size:12px';meta.textContent=`${level} · ${board} · ${sub} · Starter lesson`;const p=document.createElement('p');p.style.lineHeight='1.7';p.textContent=lessonText(topic);const note=document.createElement('div');note.className='notice';note.textContent='This is sample learning content, not a verified official chapter or complete syllabus. Cross-check your current textbook.';const btn=document.createElement('button');btn.className='btn btn-primary';btn.textContent='Ask tutor about this';btn.addEventListener('click',()=>{go('tutor');sendChat('Explain '+topic+' in '+sub+' for '+level+' with a simple example.')});box.append(h,meta,p,note,btn);box.scrollIntoView({behavior:'smooth',block:'start'})}
+function lessonText(t){const known={'Quadratic Equations':'A quadratic equation is an equation that can be written as ax² + bx + c = 0, where a ≠ 0. Example: x² − 5x + 6 = 0. Factor it: (x − 2)(x − 3) = 0. Therefore x = 2 or x = 3. Check both values in the original equation.','Real Numbers':'Real numbers include rational and irrational numbers. Rational numbers can be written as a fraction of integers with a non-zero denominator; irrational numbers cannot be written that way. Examples include 3/4 and √2.','Light: Reflection and Refraction':'Reflection is the bouncing back of light from a surface. Refraction is the change in direction of light as it passes between materials because its speed changes. Ray diagrams help represent these ideas.','Electricity':'Electric current is the rate of flow of electric charge. For an ohmic conductor at constant physical conditions, Ohm’s law is V = IR, where V is potential difference, I is current, and R is resistance.'};return known[t]||`Start by writing down what you already know about ${t.toLowerCase()}. Learn the key definitions, work through one example, then solve a question without looking at the answer. Explain the idea in your own words to check your understanding.`}
+
+const questions=[
+{q:'Which gas do plants take in for photosynthesis?',a:['Oxygen','Carbon dioxide','Nitrogen','Hydrogen'],correct:1,why:'Plants use carbon dioxide, water, and light energy to make glucose during photosynthesis.'},
+{q:'What is 3/4 expressed as a decimal?',a:['0.25','0.5','0.75','1.25'],correct:2,why:'3 divided by 4 equals 0.75.'},
+{q:'Which HTML tag creates a main heading?',a:['<p>','<h1>','<img>','<br>'],correct:1,why:'The h1 element represents a top-level heading.'},
+{q:'What is the value of x if x + 7 = 12?',a:['3','4','5','19'],correct:2,why:'Subtract 7 from both sides: x = 12 − 7 = 5.'},
+{q:'Which habit supports remembering what you learn?',a:['Only rereading','Never taking breaks','Active recall and spaced review','Studying all night'],correct:2,why:'Trying to retrieve information and reviewing it over time can strengthen learning.'}
+];let qIndex=0,selected=false,score=0;
+function renderQuestion(){const q=questions[qIndex];selected=false;$('#qNumber').textContent=qIndex+1;$('#quizProgress').style.width=(qIndex/questions.length*100)+'%';$('#questionText').textContent=q.q;$('#answers').innerHTML='';$('#quizFeedback').textContent='';$('#nextQuestion').disabled=true;$('#nextQuestion').textContent=qIndex===questions.length-1?'Finish quiz ✓':'Next question →';q.a.forEach((a,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=a;b.addEventListener('click',()=>chooseAnswer(i,b));$('#answers').appendChild(b)});$('#quizScore').textContent='—';$('#quizScoreText').textContent='Finish the quiz to see your score.'}
+function chooseAnswer(i,button){if(selected)return;selected=true;const q=questions[qIndex];$$('.answer').forEach((b,j)=>{if(j===q.correct)b.classList.add('correct');else if(j===i)b.classList.add('wrong');b.disabled=true});if(i===q.correct){score++;$('#quizFeedback').textContent='Correct! '+q.why}else $('#quizFeedback').textContent='Not quite. '+q.why;$('#nextQuestion').disabled=false}
+$('#nextQuestion').addEventListener('click',()=>{if(!selected)return;if(qIndex<questions.length-1){qIndex++;renderQuestion()}else{write('quizzes',read('quizzes',0)+1);write('lastScore',score);$('#quizProgress').style.width='100%';$('#questionText').textContent='Quiz complete!';$('#answers').innerHTML='';$('#quizFeedback').textContent='You answered '+score+' out of '+questions.length+' correctly. Review any explanations you missed, then try again.';$('#nextQuestion').disabled=true;$('#quizScore').textContent=score+'/'+questions.length;$('#quizScoreText').textContent=Math.round(score/questions.length*100)+'% correct · Sample quiz';updateStats();}});$('#restartQuiz').addEventListener('click',()=>{qIndex=0;score=0;renderQuestion()});renderQuestion();
+
+let tasks=read('tasks',[]);const today=new Date();$('#taskDate').value=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+function renderTasks(){const list=$('#taskList');list.innerHTML='';if(!tasks.length){list.innerHTML='<div class="empty">No tasks yet. Add one small, achievable task.</div>'}tasks.forEach((t,i)=>{const row=document.createElement('div');row.className='chapter';const left=document.createElement('label');left.style.cssText='display:flex;gap:9px;align-items:flex-start;flex:1';const check=document.createElement('input');check.type='checkbox';check.checked=t.done;check.addEventListener('change',()=>{tasks[i].done=check.checked;write('tasks',tasks);renderTasks();updateStats()});const txt=document.createElement('span');txt.textContent=t.title+' · '+t.date+' · '+t.duration;if(t.done)txt.style.textDecoration='line-through';left.append(check,txt);const del=document.createElement('button');del.className='btn btn-ghost';del.textContent='×';del.setAttribute('aria-label','Delete task');del.addEventListener('click',()=>{tasks.splice(i,1);write('tasks',tasks);renderTasks();updateStats()});row.append(left,del);list.appendChild(row)});const done=tasks.filter(t=>t.done).length;$('#taskProgress').style.width=(tasks.length?done/tasks.length*100:0)+'%';$('#taskSummary').textContent=`${done} of ${tasks.length} tasks completed.`}
+$('#taskForm').addEventListener('submit',e=>{e.preventDefault();tasks.push({title:$('#taskTitle').value.trim(),date:$('#taskDate').value,duration:$('#taskDuration').value,done:false});write('tasks',tasks);$('#taskTitle').value='';renderTasks();updateStats();toast('Study task saved')});renderTasks();
+$('#greenAction').value=read('greenAction','');$('#saveGreen').addEventListener('click',()=>{write('greenAction',$('#greenAction').value);$('#greenSaved').textContent='Your action is saved in this browser.';toast('Action saved')});
+$$('[data-career]').forEach(el=>el.addEventListener('click',()=>{const map={technology:'Try building a one-page website, learn basic programming, and keep a small portfolio of projects. Explore computer science, IT, design, and related fields.',health:'Explore biology and chemistry, learn about different healthcare roles, and seek guidance from qualified teachers or career counsellors about required study paths.',creative:'Make a small project such as a poster, short story, animation, or photo series. Ask for feedback and explore design, communication, media, and arts courses.'};$('#careerResult').textContent=map[el.dataset.career];$('#careerResult').style.display='block'}));
+function updateStats(){$('#statLessons').textContent=read('lessons',0);$('#statQuizzes').textContent=read('quizzes',0);$('#statTasks').textContent=read('tasks',[]).length}
+
+// Twinkling gold stars, positioned randomly on each page load.
+(function(){const f=document.getElementById('starfield');for(let i=0;i<32;i++){const s=document.createElement('span');s.className='twinkle';s.textContent=Math.random()>.5?'✦':'✧';s.style.left=Math.random()*98+'%';s.style.top=Math.random()*98+'%';s.style.fontSize=(8+Math.random()*14)+'px';s.style.setProperty('--dur',(2+Math.random()*4)+'s');s.style.animationDelay=(-Math.random()*5)+'s';f.appendChild(s)}})();
+// Editable profile (local browser only).
+let profile=read('profile',{name:'Student',image:''});
+function openProfile(){$('#profileName').value=profile.name||'Student';$('#profileDisplayName').textContent=profile.name||'Student';$('#profilePreview').src=profile.image||'stysa-logo.png';$('#profileModal').classList.add('show')}
+$('#profileOpen').addEventListener('click',openProfile);$('#profileClose').addEventListener('click',()=>$('#profileModal').classList.remove('show'));
+$('#profileModal').addEventListener('click',e=>{if(e.target.id==='profileModal')$('#profileModal').classList.remove('show')});
+$('#profileImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(f.size>1000000){toast('Choose an image smaller than 1 MB');e.target.value='';return}const r=new FileReader();r.onload=()=>$('#profilePreview').src=r.result;r.readAsDataURL(f)});
+$('#profileForm').addEventListener('submit',e=>{e.preventDefault();const src=$('#profilePreview').src;profile={name:$('#profileName').value.trim()||'Student',image:src.startsWith('data:')?src:profile.image};write('profile',profile);$('#profileOpen').textContent=profile.name[0].toUpperCase();$('#profileModal').classList.remove('show');toast('Profile saved')});
+if(profile.name!=='Student')$('#profileOpen').textContent=profile.name[0].toUpperCase();
+
+// EcoLife AI challenge tracker and honest impact records.
+const ecoActivities=['Reduce food waste','Save electricity','Carry a reusable bottle','Reuse paper','Sort waste according to local rules','Save water','Choose lower-waste transport'];
+let ecoDone=read('ecoDone',{}), ecoLog=read('ecoLog',[]), impacts=read('impacts',[]), community=read('community',[]);
+function renderEco(){const host=$('#ecoChallengeList');host.innerHTML='';ecoActivities.forEach((a,i)=>{const label=document.createElement('label');label.style.cssText='display:flex;gap:8px;align-items:center;font-size:12px;padding:7px 0';const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!ecoDone[i];cb.dataset.eco=i;const span=document.createElement('span');span.textContent=a;label.append(cb,span);host.append(label)});const n=Object.values(ecoDone).filter(Boolean).length;$('#ecoSummary').textContent=`${n} of ${ecoActivities.length} challenges completed today. ${n>=3?'Choose one habit to repeat tomorrow.':'Start with one small action you can realistically repeat.'}`}
+$('#saveEco').addEventListener('click',()=>{ecoDone={};$$('[data-eco]').forEach(c=>ecoDone[c.dataset.eco]=c.checked);const date=new Date().toISOString().slice(0,10),count=Object.values(ecoDone).filter(Boolean).length,old=ecoLog.findIndex(x=>x.date===date);if(old>=0)ecoLog[old]={date,count};else ecoLog.push({date,count});write('ecoDone',ecoDone);write('ecoLog',ecoLog);renderEco();toast('Eco progress saved')});renderEco();
+const greenLessonText={'Climate change':'Climate change is a long-term shift in climate patterns. Recent global warming is mainly driven by human greenhouse-gas emissions. Activity: identify one mitigation action and one adaptation action.','Biodiversity':'Biodiversity includes variation in living things and ecosystems. Activity: observe three local species without disturbing them.','Clean water':'Safe water and sanitation support health and dignity. Activity: map where your household uses water and identify one practical conservation step.','Renewable energy':'Solar and wind can reduce fossil-fuel use, while still having land, material, storage, and reliability trade-offs. Activity: compare which renewable source may suit your area.','Responsible consumption':'Responsible consumption includes reducing, reusing, repairing, and recycling. Activity: choose one item to reuse rather than replace.','People and equality':'Sustainable development also requires fair access to education, health, safe work, and opportunity. Activity: think how a local project can include more people.'};
+$$('[data-greenlesson]').forEach(b=>b.addEventListener('click',()=>{const box=$('#greenLessonBox');box.innerHTML='<h4></h4><p style="font-size:13px;line-height:1.7"></p><p style="font-size:12px;color:var(--muted)">Reflection: What could you safely observe, measure, or do in your community?</p>';box.querySelector('h4').textContent=b.dataset.greenlesson;box.querySelector('p').textContent=greenLessonText[b.dataset.greenlesson]}));
+function renderImpacts(){const host=$('#impactList');host.innerHTML='';impacts.slice().reverse().forEach((x,ri)=>{const row=document.createElement('div');row.className='chapter';const s=document.createElement('span');s.textContent=`${x.type}: ${x.amount} ${x.unit} · ${x.evidence}`;const d=document.createElement('button');d.className='btn btn-ghost';d.textContent='×';d.addEventListener('click',()=>{impacts.splice(impacts.length-1-ri,1);write('impacts',impacts);renderImpacts()});row.append(s,d);host.append(row)});if(!impacts.length)host.innerHTML='<div class="empty">No impact records yet.</div>'}
+$('#impactForm').addEventListener('submit',e=>{e.preventDefault();impacts.push({type:$('#impactType').value,amount:Number($('#impactAmount').value),unit:$('#impactUnit').value,evidence:$('#impactEvidence').value});write('impacts',impacts);renderImpacts();e.target.reset();toast('Impact record saved')});renderImpacts();
+$('#cityControls').innerHTML=[['Clean energy','energy'],['Water systems','water'],['Public transport','transport'],['Green spaces','green'],['Affordable housing','housing']].map(([label,id])=>`<div class="mini-field"><label>${label}: <span id="${id}Val">2</span></label><input type="range" min="0" max="10" value="2" id="city${id}"></div>`).join('');
+[['energy','energy'],['water','water'],['transport','transport'],['green','green'],['housing','housing']].forEach(([id])=>$('#city'+id).addEventListener('input',()=>$('#'+id+'Val').textContent=$('#city'+id).value));
+$('#scoreCity').addEventListener('click',()=>{const ids=['energy','water','transport','green','housing'],total=ids.reduce((s,id)=>s+Number($('#city'+id).value),0);$('#cityResult').textContent=total!==10?`Your budget is ${total}/10 points. Allocate exactly 10. Consider environmental protection, reliable services, and fairness.`:'Budget balanced. Review the balance of energy, water, transport, green spaces, and housing. This is an educational simulation, not a scientific impact calculation.'});
+function renderCommunity(){const host=$('#communityList');host.innerHTML='';community.forEach((p,i)=>{const row=document.createElement('div');row.className='chapter';const s=document.createElement('span');s.textContent=p;const b=document.createElement('button');b.className='btn btn-ghost';b.textContent='×';b.addEventListener('click',()=>{community.splice(i,1);write('community',community);renderCommunity()});row.append(s,b);host.append(row)})}
+$('#communityForm').addEventListener('submit',e=>{e.preventDefault();community.push($('#communityName').value.trim());write('community',community);renderCommunity();e.target.reset()});renderCommunity();
+
+// Career interest discovery, roadmap, skills, career explorer, and resume helper.
+const careers={
+'Software engineer':'Builds and maintains software. Useful foundations: programming, data structures, testing, collaboration. Start with a small app or website.',
+'AI engineer':'Builds AI-enabled systems. Useful foundations: programming, maths, data handling, evaluation, and responsible AI. Start with Python and a small measured experiment.',
+'Cybersecurity analyst':'Helps protect systems and investigate security risks. Useful foundations: networking, operating systems, security basics. Practice only in legal training labs.',
+'Doctor':'Assesses patients and provides medical care in a regulated profession. Requires official medical education, clinical training, and licensing in your region.',
+'Nurse':'Provides patient care and health education. Check your country’s accredited nursing education and licensing requirements.',
+'Teacher':'Plans lessons and helps learners understand concepts. Requirements vary by subject, age group, and region.',
+'Scientist':'Investigates questions through evidence and experiments. Subject degrees and research experience depend on the scientific field.',
+'Psychologist':'Studies behavior and mental processes; professional practice often requires regulated qualifications. Check official local requirements.',
+'Entrepreneur':'Tests problems and solutions, manages resources, and builds a venture. Start by speaking to potential users before building.',
+'Designer':'Creates visual or interactive solutions. Build a portfolio and practice research, prototyping, and feedback.',
+'Financial analyst':'Interprets business and financial information. Useful foundations include numeracy, spreadsheets, economics, and communication.',
+'Government service':'Public-sector roles vary widely; use official recruitment notifications for current eligibility and examinations.',
+'Skilled trades':'Practical technical roles often require vocational training, apprenticeships, safety qualifications, and licensing where applicable.',
+'Environmental scientist':'Studies ecosystems and environmental conditions using evidence, field methods, and data analysis.'
+};
+$('#careerAssessment').addEventListener('submit',e=>{e.preventDefault();const interest=$('#careerInterest').value,activity=$('#careerActivity').value;let matches=[];if(interest==='tech'||activity==='build')matches=['Software engineer','AI engineer','Cybersecurity analyst'];if(interest==='health')matches=['Doctor','Nurse','Scientist'];if(interest==='people')matches=['Teacher','Psychologist','Government service'];if(interest==='creative'||activity==='create')matches=['Designer','Teacher','Entrepreneur'];if(interest==='business'||activity==='lead')matches=['Financial analyst','Entrepreneur','Government service'];if(interest==='practical'||activity==='hands')matches=['Skilled trades','Environmental scientist','Entrepreneur'];const host=$('#careerMatches');host.innerHTML='<h4>Possible career areas to explore</h4>';matches.forEach((name,i)=>{const row=document.createElement('div');row.className='chapter';const s=document.createElement('span');s.textContent=`${name} · interest match ${[85,75,65][i]}%`;const b=document.createElement('button');b.className='btn btn-ghost';b.textContent='Explore';b.addEventListener('click',()=>{$('#careerExplorer').value=name;$('#exploreCareer').click()});row.append(s,b);host.append(row)});const n=document.createElement('div');n.className='notice';n.textContent='These are simple interest matches, not validated aptitude scores, hiring predictions, or limits on your future.';host.append(n)});
+$('#makeRoadmap').addEventListener('click',()=>{const c=$('#roadmapCareer').value,h=$('#roadmapHours').value;const steps=[`Weeks 1–2: Learn what ${c.toLowerCase()} professionals do using reliable introductory sources.`,`Weeks 3–4: Build foundations and list the skills repeated in trusted course or role descriptions.`,`Month 2: Complete one small project or supervised practical activity and document your work.`,`Month 3: Ask a teacher or mentor for feedback; verify qualification and entrance requirements from official sources.`,`Weekly commitment: ${h}. Protect time for school, sleep, and rest.`];$('#roadmapResult').innerHTML=steps.map(x=>`<div class="chapter">${x}</div>`).join('');write('roadmap',{career:c,hours:h,steps})});
+const skills=['Programming basics','Problem-solving','Communication','Teamwork','Research skills','Data literacy','Design / prototyping','Cybersecurity basics','Maths / statistics','Project documentation'];$('#skillChecklist').innerHTML=skills.map((s,i)=>`<label style="display:flex;gap:8px;align-items:center;padding:5px 0;font-size:12px"><input type="checkbox" data-skill="${i}">${s}</label>`).join('');
+$('#analyzeSkills').addEventListener('click',()=>{const missing=skills.filter((s,i)=>!$$('[data-skill]').find(x=>Number(x.dataset.skill)===i).checked);$('#skillResult').innerHTML=missing.slice(0,5).map(s=>`<div class="chapter">Practice idea: ${s} — choose one small weekly goal and keep evidence of progress.</div>`).join('')||'<div class="chapter">You marked every skill. Ask a teacher or mentor to help validate your confidence with real tasks.</div>';$('#skillResult').insertAdjacentHTML('beforeend','<div class="notice">Self-reported checklist only; it does not objectively measure ability or suitability.</div>')});
+$('#exploreCareer').addEventListener('click',()=>{const c=$('#careerExplorer').value;$('#careerDetail').textContent=careers[c]+' Work settings, salary, and opportunities vary by location and experience. Verify current requirements with official sources.'});
+function mentorReply(t){const m=t.toLowerCase();if(m.includes('cyber')&&m.includes('software'))return 'Software engineering focuses on designing and maintaining software products. Cybersecurity focuses on protecting systems and investigating risks. Both need problem-solving and continuous learning. Try a beginner project in each. This is a starter response, not live AI.';if(m.includes('salary')||m.includes('future'))return 'Salary and future demand vary by country, experience, specialization, and time. Compare current official statistics and several recent job descriptions rather than relying on a single number.';return 'Start by comparing daily tasks, required qualifications, and skills—not only job titles. Try a small project, speak with a qualified mentor, and verify course requirements. This offline version is not connected to a live AI model.'}
+$('#careerMentorForm').addEventListener('submit',e=>{e.preventDefault();const t=$('#careerMentorInput').value.trim();const host=$('#careerMentorMessages');const u=document.createElement('div');u.className='message user';u.textContent=t;host.append(u);const b=document.createElement('div');b.className='message bot';b.textContent=mentorReply(t);host.append(b);$('#careerMentorInput').value=''});
+$('#resumeForm').addEventListener('submit',e=>{e.preventDefault();$('#resumeOutput').textContent=`TARGET ROLE: ${$('#resumeRole').value.trim()}\n\nSKILLS\n${$('#resumeSkills').value.trim()||'Add relevant skills you genuinely have.'}\n\nPROJECTS / EXPERIENCE\n${$('#resumeProjects').value.trim()||'Add your contribution and truthful outcomes.'}`});
+$('#copyResume').addEventListener('click',()=>{navigator.clipboard?.writeText($('#resumeOutput').textContent).then(()=>toast('Draft copied')).catch(()=>toast('Select and copy the draft manually'))});
+const interviewQs=['Tell me about a project you worked on and a challenge you solved.','Describe a time you received feedback and what you changed.','Explain a difficult concept to a beginner.','Tell me about a mistake and what you learned.','Why are you interested in this role?'];$('#newInterview').addEventListener('click',()=>$('#interviewQuestion').textContent=interviewQs[Math.floor(Math.random()*interviewQs.length)]);
+
+
+// Live AI class: generates a full lesson through the backend, displays it, and speaks it aloud.
+let currentLessonText='',speechChunks=[],speechIndex=0,speechActive=false;
+function setClassState(state){$('#classState').textContent=state.toUpperCase()}
+function renderLesson(text){
+  const host=$('#classLessonContent');host.innerHTML='';
+  const lines=text.split(/\r?\n/);let section=null;
+  lines.forEach(line=>{
+    const trimmed=line.trim();if(!trimmed)return;
+    const heading=/^(#{1,4}\s+|(\d+[\.)]\s+)|(\*\*[^*]+\*\*))/.test(trimmed);
+    if(heading){section=document.createElement('div');section.className='lesson-section';const h=document.createElement('h4');h.textContent=trimmed.replace(/^#{1,4}\s+/,'').replace(/^\d+[\.)]\s+/,'').replace(/^\*\*|\*\*$/g,'');section.append(h);host.append(section);}
+    else{if(!section){section=document.createElement('div');section.className='lesson-section';host.append(section)}const p=document.createElement('p');p.textContent=trimmed.replace(/^\-\s+/,'• ').replace(/^\*\s+/,'• ');section.append(p)}
+  });
+}
+function speakLesson(text){
+  if(!('speechSynthesis' in window)){ $('#speechStatus').textContent='Text-to-speech is not supported in this browser. Read the lesson notes below.';return; }
+  speechSynthesis.cancel();speechChunks=text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text];speechIndex=0;speechActive=true;
+  $('#pauseSpeech').disabled=false;$('#resumeSpeech').disabled=true;$('#stopSpeech').disabled=false;
+  const speakNext=()=>{
+    if(!speechActive||speechIndex>=speechChunks.length){if(speechActive){$('#speechStatus').textContent='Lesson narration finished. You can read the notes or start another lesson.';setClassState('Lesson complete');$('#classProgress span').style.width='100%';}speechActive=false;return}
+    const chunk=speechChunks[speechIndex++].trim();const utter=new SpeechSynthesisUtterance(chunk);utter.rate=0.95;
+    const lang=$('#chatLanguage').value; if(lang==='Tamil')utter.lang='ta-IN';else utter.lang='en-US';
+    utter.onend=()=>{if(speechActive){$('#classProgress span').style.width=Math.round(speechIndex/speechChunks.length*100)+'%';speakNext()}};
+    utter.onerror=()=>{if(speechActive){$('#speechStatus').textContent='Speech playback stopped by the browser. You can read the lesson notes.';speechActive=false}};
+    speechSynthesis.speak(utter);$('#speechStatus').textContent=`Speaking section ${speechIndex} of ${speechChunks.length}…`;
+  };
+  window.__stysaSpeakNext=speakNext;speakNext();
+}
+$('#startClass').addEventListener('click',async()=>{
+  const topic=$('#classTopic').value.trim();if(!topic){$('#classTopic').focus();toast('Enter the topic you want to learn first.');return}
+  if('speechSynthesis' in window)speechSynthesis.cancel();
+  speechActive=false;$('#startClass').disabled=true;$('#startClass').textContent='Preparing your class…';setClassState('Preparing lesson');$('#classClock').textContent='AI teacher is preparing';$('#classLessonTitle').textContent=topic;$('#classLessonSummary').textContent='Building a lesson for your selected standard, including concepts, worked examples, common mistakes, and a short check for understanding.';$('#classLessonContent').innerHTML='<div class="empty">Your teacher is preparing the lesson. This can take a few seconds.</div>';$('#speechStatus').textContent='Waiting for AI lesson…';$('#classProgress span').style.width='3%';
+  try{
+    const data=await callAI('/api/lesson',{level:$('#classLevel').value,board:$('#classBoard').value,subject:$('#classSubject').value,topic,duration:$('#classDuration').value,language:$('#chatLanguage')?$('#chatLanguage').value:'English'});
+    currentLessonText=data.lesson;$('#classLessonTitle').textContent=data.title||topic;$('#classLessonSummary').textContent=data.summary||'Your lesson is ready. Use the controls to pause, resume, or end the spoken explanation.';renderLesson(data.lesson);$('#speakAgain').disabled=false;setClassState('Live lesson');$('#classClock').textContent='Lesson ready';speakLesson(data.lesson);toast('Your AI class has started');
+  }catch(err){setClassState('Could not start');$('#classLessonSummary').textContent=err.message;$('#classLessonContent').innerHTML='';const p=document.createElement('p');p.className='message error';p.textContent='Live AI lesson could not start. '+err.message+' Start the backend and configure GEMINI_API_KEY using the included README.';$('#classLessonContent').append(p);$('#speechStatus').textContent='No lesson started.'}
+  finally{$('#startClass').disabled=false;$('#startClass').textContent='▶ Start Live Class'}
+});
+$('#pauseSpeech').addEventListener('click',()=>{if('speechSynthesis'in window){speechSynthesis.pause();$('#pauseSpeech').disabled=true;$('#resumeSpeech').disabled=false;$('#speechStatus').textContent='Narration paused.'}});
+$('#resumeSpeech').addEventListener('click',()=>{if('speechSynthesis'in window){speechSynthesis.resume();$('#pauseSpeech').disabled=false;$('#resumeSpeech').disabled=true;$('#speechStatus').textContent='Narration resumed.'}});
+function stopLesson(){speechActive=false;if('speechSynthesis'in window)speechSynthesis.cancel();setClassState('Class ended');$('#speechStatus').textContent='Class ended. Your lesson notes remain on the board.';$('#pauseSpeech').disabled=true;$('#resumeSpeech').disabled=true;$('#stopSpeech').disabled=true}
+$('#stopSpeech').addEventListener('click',stopLesson);
+$('#speakAgain').addEventListener('click',()=>{if(currentLessonText){setClassState('Live lesson');speakLesson(currentLessonText)}});
+checkAIConnection();
+
+updateStats();
+</script>
+</body>
+</html>
