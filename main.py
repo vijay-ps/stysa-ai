@@ -18,6 +18,7 @@ app.add_middleware(
         "http://localhost:5500",
         "http://127.0.0.1:5501",
         "http://localhost:5501",
+        "https://stysa-ai.vercel.app",
     ],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
